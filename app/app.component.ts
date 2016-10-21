@@ -7,7 +7,10 @@ import { Meal } from './meal.model';
   <div class="container">
     <h1>Meal Time</h1>
     <meal-add (newMealSender)="createMeal($event)"></meal-add>
-    <meal-list [childMealList]='masterMealList'></meal-list>
+    <hr>
+    <meal-list [childMealList]='masterMealList' (clickSender)='showDetails($event)'></meal-list>
+    <meal-edit [childSelectedMeal]="selectedMeal" (doneClickedSender)="editMeal()"></meal-edit>
+    <hr>
   </div>
   `
 })
@@ -20,7 +23,17 @@ export class AppComponent {
       new Meal("baguette", "the crunchy kind", 200)
   ];
 
+  selectedMeal: Meal = null;
+
+  showDetails(clickedMeal: Meal){
+    this.selectedMeal = clickedMeal;
+  }
+
   createMeal(newMealFromChild: Meal) {
-  this.masterMealList.push(newMealFromChild);
+    this.masterMealList.push(newMealFromChild);
+  }
+
+  editMeal() {
+    this.selectedMeal = null;
   }
 }

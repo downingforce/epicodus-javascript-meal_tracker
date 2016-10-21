@@ -4,10 +4,12 @@ import { AppComponent }   from './app.component';
 import { MealListComponent } from './meal-list.component';
 import { MealComponent } from './meal.component';
 import { MealAddComponent } from './meal-add.component';
+import { MealEditComponent } from './meal-edit.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule],
-  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent ],
+  imports: [BrowserModule, FormsModule],
+  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent, MealEditComponent ],
   bootstrap:    [ AppComponent ]
 })
 
