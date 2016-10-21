@@ -7,10 +7,11 @@ import { MealAddComponent } from './meal-add.component';
 import { MealEditComponent } from './meal-edit.component';
 import { FormsModule }   from '@angular/forms';
 import { FilterMealsPipe } from './filter-meals.pipe';
+import { SortCaloriesPipe } from './calorie-sort.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent, MealEditComponent, FilterMealsPipe ],
+  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent, MealEditComponent, FilterMealsPipe, SortCaloriesPipe ],
   bootstrap:    [ AppComponent ]
 })
 

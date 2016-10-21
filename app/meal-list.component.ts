@@ -9,7 +9,14 @@ import { Meal } from './meal.model';
       <option value="over500">Over 500</option>
       <option value="under500" selected="selected">Under 500</option>
     </select>
-    <div *ngFor="let currentMeal of childMealList | filterMeals:selectedMeals">
+
+    <select (change)="onChangeCalorie($event.target.value)" class="filter">
+      <option value="sort" selected>Sort</option>
+      <option value="low">Low to high</option>
+      <option value="high">High to low</option>
+    </select>
+
+    <div *ngFor="let currentMeal of childMealList | filterMeals:selectedMeals | sortCalories:selectedCalories">
       <meal-display [meal]="currentMeal"></meal-display>
       <button (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
     </div>
@@ -28,6 +35,12 @@ export class MealListComponent {
 
   onChange(targetValue) {
     this.selectedMeals = targetValue;
+  }
+
+  public selectedCalories: string = "";
+
+  onChangeCalorie(targetValue) {
+    this.selectedCalories = targetValue;
   }
 
 }
