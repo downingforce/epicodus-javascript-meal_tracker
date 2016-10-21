@@ -6,10 +6,11 @@ import { MealComponent } from './meal.component';
 import { MealAddComponent } from './meal-add.component';
 import { MealEditComponent } from './meal-edit.component';
 import { FormsModule }   from '@angular/forms';
+import { FilterMealsPipe } from './filter-meals.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent, MealEditComponent ],
+  declarations: [ AppComponent, MealListComponent, MealComponent, MealAddComponent, MealEditComponent, FilterMealsPipe ],
   bootstrap:    [ AppComponent ]
 })
 
