@@ -12,6 +12,10 @@ import { Meal } from './meal.model';
     <meal-edit [childSelectedMeal]="selectedMeal" (doneClickedSender)="editMeal()"></meal-edit>
     <hr>
   </div>
+  <div class="mealStats">
+    <h3>Total Calories: {{totalCalories()}}</h3>
+    <h3>Calorie Average: {{mealAverage()}}</h3>
+  </div>
   `
 })
 
@@ -35,5 +39,17 @@ export class AppComponent {
 
   editMeal() {
     this.selectedMeal = null;
+  }
+
+  totalCalories() {
+    var total: number = 0;
+    for (var i = 0; i < this.masterMealList.length; i++){
+      total += this.masterMealList[i].calories;
+    }
+    return total;
+  }
+
+  mealAverage () {
+    return (this.totalCalories()/this.masterMealList.length)
   }
 }
