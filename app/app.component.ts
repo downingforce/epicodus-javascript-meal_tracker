@@ -4,17 +4,20 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'my-app',
   template: `
-  <div class="container">
+  <div class="col-sm-6">
     <h1>Meal Time</h1>
-    <meal-add (newMealSender)="createMeal($event)"></meal-add>
-    <hr>
-    <meal-list [childMealList]='masterMealList' (clickSender)='showDetails($event)'></meal-list>
-    <meal-edit [childSelectedMeal]="selectedMeal" (doneClickedSender)="editMeal()"></meal-edit>
-    <hr>
+    <div class="container">
+      <meal-list [childMealList]='masterMealList' (clickSender)='showDetails($event)'></meal-list>
+      <hr>
+    </div>
   </div>
-  <div class="mealStats">
-    <h3>Total Calories: {{totalCalories()}}</h3>
-    <h3>Calorie Average: {{mealAverage()}}</h3>
+  <div class="col-sm-6">
+    <div class="mealStats">
+      <h3>Total Calories: {{totalCalories()}}</h3>
+      <h3>Calorie Average: {{mealAverage()}}</h3>
+    </div>
+    <meal-add (newMealSender)="createMeal($event)"></meal-add>
+    <meal-edit [childSelectedMeal]="selectedMeal" (doneClickedSender)="editMeal()"></meal-edit>
   </div>
   `
 })
@@ -50,6 +53,6 @@ export class AppComponent {
   }
 
   mealAverage () {
-    return (this.totalCalories()/this.masterMealList.length)
+    return (this.totalCalories()/this.masterMealList.length);
   }
 }
